@@ -103,23 +103,20 @@
         .footer-credit a { color: #ffd700; text-decoration: none; }
         .footer-credit a:hover { text-decoration: underline; }
 
-        /* Ad Container Styles - Kept Simple */
         .ad-placeholder-container {
             margin: 20px auto; 
-            display: flex; /* Helps in centering if ad is smaller */
+            display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden; /* Important */
-            /* width attribute of ad script will define its width */
+            overflow: hidden;
         }
-        .ad-size-468x60 { min-height: 60px; /* Ensure space is reserved */ }
-        /* Add other ad sizes if needed, e.g., .ad-size-300x250 { min-height: 250px; } */
+        .ad-size-468x60 { min-height: 60px; width: 468px; max-width: 100%;}
     </style>
 </head>
 <body>
     <div id="fireworks-container"></div>
 
-    <div class="container"> <!-- Main content box -->
+    <div class="container">
         <img id="eidImage" src="eidmubarak.gif" alt="ঈদ মোবারক অ্যানিমেশন" loading="lazy">
         <h1 id="greetingMessage">ঈদ মোবারক!</h1>
         <span id="animatedSenderName" style="display: none;"></span>
@@ -138,7 +135,6 @@
         <p class="footer-credit">Eid Mubarak Card Generator © <span id="currentYear"></span></p>
     </div>
 
-    <!-- Ads Section -->
     <!-- Adsterra Banner 468x60 -->
     <div class="ad-placeholder-container ad-size-468x60">
         <script type="text/javascript">
@@ -151,7 +147,6 @@
     <div class="ad-placeholder-container ad-size-468x60">
         <ins style="width: 468px;height:60px" data-width="468" data-height="60" class="kb834c675d4" data-domain="//bcyxwn.click" data-affquery="/dfdef6a08e830aacbbf7/b834c675d4/?placementName=default"><script src="//bcyxwn.click/js/responsive.js" async></script></ins>
     </div>
-    <!-- End of Ads Section -->
 
     <script src="https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.min.js"></script>
     <script>
@@ -174,9 +169,15 @@
             function startFireworks() {
                  if (!fireworksInstance && typeof Fireworks !== 'undefined') {
                     fireworksInstance = new Fireworks(fireworksContainer, {
-                        maxRockets: 5, rocketSpawnInterval: 150, numParticles: 100,
-                        explosionMinHeight: 0.2, explosionMaxHeight: 0.9, explosionChance: 0.08,
-                        speed: 4, acceleration: 1.06, delay: { min: 10, max: 25 }
+                        maxRockets: 3, 
+                        rocketSpawnInterval: 200, 
+                        numParticles: 70, 
+                        explosionMinHeight: 0.2, 
+                        explosionMaxHeight: 0.85, 
+                        explosionChance: 0.07,
+                        speed: 3, 
+                        acceleration: 1.05, 
+                        delay: { min: 15, max: 30 } 
                     });
                     fireworksInstance.start();
                 }
@@ -192,7 +193,6 @@
                 animatedSenderName.style.display = 'block';
                 nameInput.placeholder = "এবার আপনার নাম লিখুন";
             } else {
-                // greetingMessage.textContent is already "ঈদ মোবারক!"
                 nameInput.placeholder = "আপনার নাম লিখুন";
             }
             greetingMessage.style.opacity = '1';
@@ -230,7 +230,7 @@
                 shareLinkDisplay.style.display = 'block';
                 copyLinkButton.style.display = 'inline-block';
                 alert('এই লিঙ্কটি কপি করে আপনার বন্ধুদের সাথে শেয়ার করুন।');
-                if (shareLinkDisplay.scrollIntoView) { // Check if method exists
+                if (shareLinkDisplay.scrollIntoView) {
                     shareLinkDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             }
@@ -245,7 +245,6 @@
             });
         });
     </script>
-    <!-- Adsterra Social Bar -->
     <script type='text/javascript' src='//genuinelyunacceptableweep.com/0e/cc/d2/0eccd24634e66d44bf31597e2479d3aa.js' async></script>
 </body>
 </html>
